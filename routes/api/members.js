@@ -40,6 +40,11 @@ router.post('/', (req, res) => {
 
     members.push(newMember);
     res.json(members);
+    // res.redirect('/');
+    /*
+    while this res.json(members); add to json member and go to new page
+    this  res.redirect('/'); add to member and redirect back to the same page
+    */
 });
 
 // Update Member

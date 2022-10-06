@@ -5,6 +5,7 @@ const { get } = require('http');
 const exp = require('express-handlebars');
 const path = require('path');
 const logger = require('./middleware/logger');
+const members = require('./Members');
 
 const app = express();
 
@@ -22,7 +23,10 @@ app.use(express.urlencoded({ extended: false }));
 // Homepage Route (this is will render the content in views folder which is the index.handlebars)
 // This also overide 'static folder' below
 app.get('/', (req, res) => {
-    res.render('index');
+    res.render('index', {
+        title: 'Member App',
+        members
+    });
 })
 
 // Set static folder (so we can render as many html pages as we want)
